@@ -116,9 +116,10 @@ $cari=$_GET['cari'];
                     </tbody>
                 </table>
                 
-                <ul class="list-nostyle list-inline">
-                	<li><a href="index.php?mod=penilaian_proses" class="btn btn-primary">
-                    <i class="iconfa-refresh"></i>&nbsp;PROSES</a></li>
+
+                 <ul class="list-nostyle list-inline">
+                	<li><a href="index.php?mod=proses" class="btn btn-primary">
+				 <i class="iconfa-refresh"></i>&nbsp;PROSES</a></li>
                  
                 </ul>
                 
