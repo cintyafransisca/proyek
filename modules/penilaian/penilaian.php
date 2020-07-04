@@ -116,10 +116,11 @@ $cari=$_GET['cari'];
                     </tbody>
                 </table>
                 
-                 <p class="stdformbutton" method="post" action="proses.php">
-                                <button class="btn btn-primary">PROSES</button>                                
-                                <input type="hidden" value="1" name="submitted" /> 
-                            </p>
+                <ul class="list-nostyle list-inline">
+                	<li><a href="index.php?mod=penilaian_proses" class="btn btn-primary">
+                    <i class="iconfa-refresh"></i>&nbsp;PROSES</a></li>
+                 
+                </ul>
                 
                 <?php include "footer.php"; ?>
             

@@ -49,7 +49,7 @@ echo '<meta http-equiv="refresh" content="0;url=index.php?mod=penilaian">';
 					<P><label>NIP</label>				
 					<span class="field" >
                     <?php 
-    $result = mysql_query("select * from pegawai order by nama_pegawai");
+    $result = mysql_query("select * from pegawai where NOT EXISTS (select * from penilaian where pegawai.nip=penilaian.nip) order by nama_pegawai");
     $jsArray = "var prdName = new Array();\n";
     echo '<select required="required" name="nip" id="nip" onchange="changeValue(this.value)" class="input-xlarge"><option ></option>';
      while ($row = mysql_fetch_array($result)) {

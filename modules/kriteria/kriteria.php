@@ -49,8 +49,8 @@ $cari=$_GET['cari'];
 	    $i=1;
 	    while($data = mysql_fetch_array($result)){
 	
-	$hitung = 9;
-	$hasil= $hitung / $i;
+	//$hitung = 9;
+	//$hasil= $hitung / $i;
 	
 	
 	?>    
