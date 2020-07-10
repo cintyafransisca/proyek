@@ -1,18 +1,53 @@
+<?php
+//ambil nilai normalisasi dari tiap kriteria
+$kriteria1 = "SELECT normalisasi FROM kriteria WHERE id_kriteria=1";
+$result_kriteria1 = mysql_query($kriteria1);
+$data_kriteria1 = mysql_fetch_array($result_kriteria1);
+$kriteria2 = "SELECT normalisasi FROM kriteria WHERE id_kriteria=2";
+$result_kriteria2 = mysql_query($kriteria2);
+$data_kriteria2 = mysql_fetch_array($result_kriteria2);
+$kriteria3 = "SELECT normalisasi FROM kriteria WHERE id_kriteria=3";
+$result_kriteria3 = mysql_query($kriteria3);
+$data_kriteria3 = mysql_fetch_array($result_kriteria3);
+$kriteria4 = "SELECT normalisasi FROM kriteria WHERE id_kriteria=4";
+$result_kriteria4 = mysql_query($kriteria4);
+$data_kriteria4 = mysql_fetch_array($result_kriteria4);
+$kriteria5 = "SELECT normalisasi FROM kriteria WHERE id_kriteria=5";
+$result_kriteria5 = mysql_query($kriteria5);
+$data_kriteria5 = mysql_fetch_array($result_kriteria5);
+$kriteria6 = "SELECT normalisasi FROM kriteria WHERE id_kriteria=6";
+$result_kriteria6 = mysql_query($kriteria6);
+$data_kriteria6 = mysql_fetch_array($result_kriteria6);
+
+$sql_penilaian = "SELECT * FROM penilaian";
+$result_penilaian = mysql_query($sql_penilaian);
+
+$nip=$_GET['nip'];
+$nama_pegawai=$_GET['nama_pegawai'];
+
+?>
+
 <?php	
-
 //hitung s dari tiap pegawai
-//$sql_penilaian = "SELECT * from penilaian";
-//$result_penilaian = mysql_fetch_array(mysql_query($sql_penilaian));
-//$s_penilaian=$result_penilaian['s'];
-
-
-
-//hitung penilaian pegawai & input ke tabel hasil_akhir
-//$sql = "INSERT INTO hasil_akhir (nip, nama_pegawai, nama_divisi, kriteria1, kriteria2, kriteria3,kriteria4, kriteria5, kriteria6, hasil) VALUES (
-//'{$_POST['nip']}','{$_POST['nama_pegawai']}','{$_POST['nama_divisi']}','{$_POST['kriteria1']}','{$_POST['kriteria2']}','{$_POST['kriteria3']}','{$_POST['kriteria4']}','{$_POST['kriteria5']}','{$_POST['kriteria6']}','$hasil')"; 
-
-
-
+$i=1;
+while($data_penilaian = mysql_fetch_array($result_penilaian)){
+    $s_penilaian=(pow($data_penilaian['kriteria1'],$data_kriteria1['normalisasi']))*(pow($data_penilaian['kriteria2'],$data_kriteria2['normalisasi']))*(pow($data_penilaian['kriteria3'],$data_kriteria3['normalisasi']))*(pow($data_penilaian['kriteria4'],$data_kriteria4['normalisasi']))*(pow($data_penilaian['kriteria5'],$data_kriteria5['normalisasi']))*(pow($data_penilaian['kriteria6'],$data_kriteria6['normalisasi']));    
+    var_dump($s_penilaian); 
+    $sql = "INSERT INTO hasil_akhir (nip, nama_pegawai, nilai_s) VALUES (
+        '{$_GET['nip']}','{$_GET['nama_pegawai']}','$s_penilaian')"; 
+    $result = mysql_query($sql);
+    ?>
+    <?php
+    $i++;
+}
+?>
+ <?php
+//hitung v dari tiap pegawai    
+    //$sql = "INSERT INTO hasil_akhir (nip, nama_pegawai, hasil) VALUES (
+    //'{$_POST['nip']}','{$_POST['nama_pegawai']}','$hasil')"; 
+    //$result = mysql_query($sql);
+?>
+<?php
 mysql_query($sql) or die(mysql_error()); 
 pesan_sukses("Membuka Halaman Hasil Akhir"); 
 echo '<meta http-equiv="refresh" content="0;url=index.php?mod=hasil">'; 

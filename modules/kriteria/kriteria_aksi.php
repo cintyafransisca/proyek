@@ -9,14 +9,16 @@ $data2 = mysql_fetch_array($result2);
 $i=1;
 while($data = mysql_fetch_array($result)){
     $normalisasi = $data['bobot']/$data2['total'];
-    $sql3 = "UPDATE kriteria SET normalisasi = $normalisasi WHERE id_kriteria=$i";    
+    $sql3 = "UPDATE kriteria SET normalisasi = $normalisasi WHERE id_kriteria=$i";  
+    var_dump($normalisasi);  
+    $result3= mysql_query($sql3);
 ?>
 <?php
     $i++;
 }
 ?>
-    <?php
-    echo "<script language='JavaScript'>
-	document.location='index.php?mod=kriteria';
-    </script>";
-    ?>
+<?php
+echo "<script language='JavaScript'>
+document.location='index.php?mod=kriteria';
+</script>"; 
+?>   

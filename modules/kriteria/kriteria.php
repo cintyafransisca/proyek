@@ -39,8 +39,6 @@ $cari=$_GET['cari'];
 	     			<th width="30">Nama Kriteria</th>
                     <th width="25">Bobot Kriteria</th>
                     <th width="25">Normalisasi</th>
-                    <th width="25">hitung</th>
-
 	     			<th width="20">Action</th>
 		        </tr>
     		</thead>
@@ -60,7 +58,6 @@ $cari=$_GET['cari'];
  	 			<td><?php echo $data['nama_kriteria'] ?></td>
                 <td><?php echo $data['bobot'] ?></td>
                 <td><?php echo $data['normalisasi'] ?></td>
-				<td><?= $hasil ?></td>
  	 			
 <td><div align="center"><a href="index.php?mod=<?php echo $modname; ?>_edit&id=<?php echo $data['kode_kriteria'] ?>"><span title="Edit" class="iconfa-edit" style="font-size:20px"></span></a></div></td></tr>
                         <?php
@@ -74,7 +71,7 @@ $cari=$_GET['cari'];
                 
                 <ul class="list-nostyle list-inline">
                 	<li><a href="index.php?mod=kriteria_aksi" class="btn btn-primary">
-                    <i class="iconfa-refresh"></i>&nbsp;SUBMIT</a></li>
+                    <i class="iconfa-refresh"></i>&nbsp;PERBARUI NORMALISASI</a></li>
                  
                 </ul>
                 

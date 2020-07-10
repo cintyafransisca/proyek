@@ -77,10 +77,10 @@ $cari=$_GET['cari'];
 	     			<th width="50">Divisi</th>
 	     			<th width="20">Kedisiplinan</th>
 	     			<th width="20">Kerjasama Tim</th>
-	     			<th width="20">Sikap</th>
+	     			<th width="20">Produktivitas</th>
 	     			<th width="20">Presensi</th>
 	     			<th width="20">Skill</th>
-	     			<th width="20">Produktivitas</th>
+	     			<th width="20">Sikap</th>
 	     			
 	     			<th width="20">Action</th>
 		        </tr>

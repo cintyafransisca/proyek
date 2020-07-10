@@ -30,10 +30,6 @@ $cari=$_GET['cari'];
                 	<li><a href="index.php?mod=pegawai_new" class="btn btn-primary">
                     <i class="iconfa-plus"></i>&nbsp;Tambah Data Pegawai</a></li>
                     
-                
-            
-                   
-                    
                 </ul>
                 </ul>
                 <form class="stdform3" action="" method="GET">
