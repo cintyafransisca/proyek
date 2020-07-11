@@ -3,6 +3,9 @@ if (isset($_GET['id']) ) {
 $id = (string) $_GET['id']; 
 if (isset($_POST['submitted'])) { 
 mysql_query("DELETE FROM pegawai WHERE nip = '$id' ") ; 
+mysql_query("DELETE FROM penilaian WHERE nip = '$id' ") ; 
+mysql_query("DELETE FROM hasil_akhir WHERE nip = '$id' ") ; 
+mysql_query("DELETE FROM user WHERE username = '$id' ") ; 
 echo (mysql_affected_rows()) ? pesan_sukses("record is deleted.") : pesan_gagal("Delete failed."); 
 echo '<meta http-equiv="refresh" content="0;url=index.php?mod=pegawai">'; 
 }

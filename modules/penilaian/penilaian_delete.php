@@ -2,16 +2,17 @@
 if (isset($_GET['id']) ) { 
 $id = (string) $_GET['id']; 
 if (isset($_POST['submitted'])) { 
-mysql_query("DELETE FROM pegawai WHERE nip = '$id' ") ; 
+mysql_query("DELETE FROM penilaian WHERE nip = '$id' ") ; 
+mysql_query("DELETE FROM hasil_akhir WHERE nip = '$id' ") ; 
 echo (mysql_affected_rows()) ? pesan_sukses("record is deleted.") : pesan_gagal("Delete failed."); 
-echo '<meta http-equiv="refresh" content="0;url=index.php?mod=pegawai">'; 
+echo '<meta http-equiv="refresh" content="0;url=index.php?mod=penilaian">'; 
 }
-$row = mysql_fetch_array ( mysql_query("SELECT * FROM pegawai WHERE nip = '$id' "));
+$row = mysql_fetch_array ( mysql_query("SELECT * FROM penilaian WHERE nip = '$id' "));
 ?>
 <div class="rightpanel">
 <ul class="breadcrumbs">
      <li><a href="index.php"><i class="iconfa-home"></i></a> <span class="separator"></span></li>
-    <li><a href="index.php?mod=pegawai">Pegawai Delete</a> <span class="separator"></span></li>
+    <li><a href="index.php?mod=penilaian">Penilaian Delete</a> <span class="separator"></span></li>
     
     <div style="float:right !important; margin-right:10px"><?php echo date("l, d F Y");?></div>
 </ul>
@@ -20,7 +21,7 @@ $row = mysql_fetch_array ( mysql_query("SELECT * FROM pegawai WHERE nip = '$id' 
             
             <div class="pageicon"><span class="iconfa-trash"></span></div>
             <div class="pagetitle">
-                <h5>Pegawai</h5>
+                <h5>Penilaian</h5>
                 <h1>Hapus Data</h1>
             </div>
         </div><!--pageheader-->
@@ -41,7 +42,24 @@ $row = mysql_fetch_array ( mysql_query("SELECT * FROM pegawai WHERE nip = '$id' 
 			
                     <p><label>Divisi</label>				
 					<span class="field"><?php echo $row['nama_divisi']; ?></span></p>
-                    
+
+                    <p><label>Kedisiplinan</label>				
+					<span class="field"><?php echo $row['kriteria1']; ?></span></p>
+
+                    <p><label>Kerjasama Tim</label>				
+					<span class="field"><?php echo $row['kriteria2']; ?></span></p>
+
+                    <p><label>Sikap</label>				
+					<span class="field"><?php echo $row['kriteria3']; ?></span></p>
+
+                    <p><label>Presensi</label>				
+					<span class="field"><?php echo $row['kriteria4']; ?></span></p>
+
+                    <p><label>Skill</label>				
+					<span class="field"><?php echo $row['kriteria5']; ?></span></p>
+
+                    <p><label>Produktivitas</label>				
+					<span class="field"><?php echo $row['kriteria6']; ?></span></p>
                                         
                 			<p class="stdformbutton">
                                 <button class="btn btn-primary">DELETE</button>                                

@@ -106,7 +106,9 @@ $cari=$_GET['cari'];
                 <td><?php echo $data2['kriteria6'] ?></td>
 				
  	 			
-<td><div align="center"><a href="index.php?mod=<?php echo $modname; ?>_edit&id=<?php echo $data['nip'] ?>"><span title="Edit" class="iconfa-edit" style="font-size:20px"></span></a></div></td></tr>
+<td><div align="center"><a href="index.php?mod=<?php echo $modname; ?>_edit&id=<?php echo $data['nip'] ?>"><span title="Edit" class="iconfa-edit" style="font-size:20px"></span></a>&nbsp;&nbsp;
+<a href="index.php?mod=<?php echo $modname; ?>_delete&id=<?php echo $data['nip'] ?>"><span title="Delete" class="iconfa-trash" style="font-size:20px"></span></a>&nbsp;&nbsp;
+</div></td></tr>
                         <?php
 		   					$i++;
 	        			}

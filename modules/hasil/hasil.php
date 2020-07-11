@@ -38,7 +38,7 @@ $cari=$_GET['cari'];
                     <th width="20">No</th>   
 	     			<th width="20">NIP</th>
 	     			<th width="50">Nama Pegawai</th>
-	     			<th width="50">Divisi</th>
+	     			<th width="50">Nilai S</th>
 	     			<th width="50">Hasil</th>
 	     			<th width="50">Persentase Hasil</th>
 		        </tr>
@@ -53,7 +53,7 @@ $cari=$_GET['cari'];
  	 			<td><?php echo $i; ?></td>
  	 			<td><?php echo $data['nip'] ?></td>
  	 			<td><?php echo $data['nama_pegawai'] ?></td>
- 	 			<td><?php echo $data['nama_divisi'] ?></td>
+ 	 			<td><?php echo $data['nilai_s'] ?></td>
  	 			<td><?php echo $data['hasil'] ?></td>
  	 			<td><?php echo $data['persentase_hasil'] ?></td>
 				</tr>
