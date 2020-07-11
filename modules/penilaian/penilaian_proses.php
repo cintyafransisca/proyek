@@ -21,7 +21,10 @@ $data_kriteria6 = mysql_fetch_array($result_kriteria6);
 
 $sql_penilaian = "SELECT * FROM penilaian";
 $result_penilaian = mysql_query($sql_penilaian);
-    
+
+$sql_hasil_akhir = "SELECT * FROM hasil_akhir";
+$result_hasil_akhir = mysql_query($sql_penilaian);
+$data_hasil_akhir = mysql_fetch_array($result_hasil_akhir);
 ?>
 
 <?php	
@@ -33,9 +36,12 @@ while($data_penilaian = mysql_fetch_array($result_penilaian)){
     $s_penilaian=(pow($data_penilaian['kriteria1'],$data_kriteria1['normalisasi']))*(pow($data_penilaian['kriteria2'],$data_kriteria2['normalisasi']))*(pow($data_penilaian['kriteria3'],$data_kriteria3['normalisasi']))*(pow($data_penilaian['kriteria4'],$data_kriteria4['normalisasi']))*(pow($data_penilaian['kriteria5'],$data_kriteria5['normalisasi']))*(pow($data_penilaian['kriteria6'],$data_kriteria6['normalisasi']));    
     var_dump($s_penilaian); 
     var_dump($nip);
-    //if($nip WHERE EXISTS);
+    if ($nip=$data_hasil_akhir['nip']){
+        $sql = "UPDATE hasil_akhir SET nilai_s = $nilai_s WHERE nip=$nip";   
+    } else {
     $sql = "INSERT INTO hasil_akhir (nip, nama_pegawai, nilai_s) VALUES (
-        '$nip','$nama_pegawai','$s_penilaian')"; 
+        '$nip','$nama_pegawai','$s_penilaian')";
+        }
     $result = mysql_query($sql);
     ?>
     <?php
