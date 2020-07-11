@@ -21,9 +21,6 @@ $data_kriteria6 = mysql_fetch_array($result_kriteria6);
 
 $sql_penilaian = "SELECT * FROM penilaian";
 $result_penilaian = mysql_query($sql_penilaian);
-
-//$nip=$_POST['nip'];
-//$nama_pegawai=$_POST['nama_pegawai'];
     
 ?>
 
