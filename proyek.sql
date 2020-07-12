@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 03, 2020 at 06:01 AM
+-- Generation Time: Jul 12, 2020 at 03:25 PM
 -- Server version: 5.6.16
 -- PHP Version: 5.5.11
 
@@ -73,9 +73,18 @@ INSERT INTO `divisi` (`id_divisi`, `kode_divisi`, `nama_divisi`) VALUES
 CREATE TABLE IF NOT EXISTS `hasil_akhir` (
   `nip` int(11) NOT NULL,
   `nama_pegawai` varchar(50) NOT NULL,
-  `hasil` int(11) NOT NULL,
+  `nilai_s` float NOT NULL,
+  `hasil` float NOT NULL,
   PRIMARY KEY (`nip`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `hasil_akhir`
+--
+
+INSERT INTO `hasil_akhir` (`nip`, `nama_pegawai`, `nilai_s`, `hasil`) VALUES
+(1245, 'Poppy', 3.3378, 0.506606),
+(14788, 'Rudi', 3.25075, 0.493394);
 
 -- --------------------------------------------------------
 
@@ -97,12 +106,12 @@ CREATE TABLE IF NOT EXISTS `kriteria` (
 --
 
 INSERT INTO `kriteria` (`id_kriteria`, `kode_kriteria`, `nama_kriteria`, `bobot`, `normalisasi`) VALUES
-(1, 'KDS', 'Kedisiplinan', 5, '0.00'),
-(2, 'KST', 'Kerjasama tim', 4, '0.00'),
-(3, 'PRD', 'Produktivitas', 4, '0.00'),
-(4, 'PRS', 'Presensi', 3, '0.00'),
-(5, 'SKL', 'Skill', 4, '0.00'),
-(6, 'SKP', 'Sikap', 4, '0.00');
+(1, 'KDS', 'Kedisiplinan', 5, '0.20'),
+(2, 'KST', 'Kerjasama tim', 4, '0.16'),
+(3, 'PRD', 'Produktivitas', 5, '0.20'),
+(4, 'PRS', 'Presensi', 3, '0.12'),
+(5, 'SKL', 'Skill', 4, '0.16'),
+(6, 'SKP', 'Sikap', 4, '0.16');
 
 -- --------------------------------------------------------
 
@@ -151,7 +160,7 @@ CREATE TABLE IF NOT EXISTS `penilaian` (
 --
 
 INSERT INTO `penilaian` (`nip`, `nama_pegawai`, `nama_divisi`, `kriteria1`, `kriteria2`, `kriteria3`, `kriteria4`, `kriteria5`, `kriteria6`) VALUES
-(1245, 'Poppy', 'Sales', 4, 2, 3, 2, 5, 5),
+(1245, 'Poppy', 'Sales', 5, 3, 3, 5, 4, 4),
 (14788, 'Rudi', 'Sales', 4, 3, 5, 3, 4, 4);
 
 -- --------------------------------------------------------
