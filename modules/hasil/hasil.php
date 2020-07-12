@@ -5,7 +5,7 @@ $cari=$_GET['cari'];
 	} else {
 		$ket="";
 	}
-    $sql = "SELECT * FROM hasil_akhir ".$ket." order by hasil asc";
+    $sql = "SELECT * FROM hasil_akhir ".$ket." order by hasil desc";
     $result = mysql_query($sql);
 	$modname="hasil";		
 ?>
@@ -55,13 +55,13 @@ $cari=$_GET['cari'];
  	 			<td><?php echo $data['nama_pegawai'] ?></td>
  	 			<td><?php echo $data['nilai_s'] ?></td>
  	 			<td><?php echo $data['hasil'] ?></td>
- 	 			<td><?php echo $data['persentase_hasil'] ?></td>
+ 	 			<td><?php echo $data['hasil']*100 ?> %</td>
 				</tr>
                         <?php
 		   					$i++;
 	        			}
 	    				?>  
-                        
+                       
                        
                     </tbody>
                 </table>
