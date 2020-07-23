@@ -98,7 +98,7 @@ echo '<meta http-equiv="refresh" content="0;url=index.php?mod=penilaian">';
 							<option value="5">5 - Sangat tinggi</option>
 						  </span></select></P>
                     
-                     <P><label> Sikap</label>				
+                     <P><label> Produktivitas</label>				
 					<span class="field"><select name="kriteria3">
 							<option value="0">-- Isi nilai kriteria 3 --</option>
 							<option value="1">1 -Sangat rendah</option>
@@ -128,7 +128,7 @@ echo '<meta http-equiv="refresh" content="0;url=index.php?mod=penilaian">';
 							<option value="5">5 - Sangat tinggi</option>
 						  </span></select></P>
 						  
-						  <P><label> Produktivitas</label>				
+						  <P><label> Sikap</label>				
 					<span class="field"><select name="kriteria6">
 							<option value="0">-- Isi nilai kriteria 6 --</option>
 							<option value="1">1 -Sangat rendah</option>

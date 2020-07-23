@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 12, 2020 at 03:25 PM
+-- Generation Time: Jul 19, 2020 at 04:30 PM
 -- Server version: 5.6.16
 -- PHP Version: 5.5.11
 
@@ -55,14 +55,17 @@ CREATE TABLE IF NOT EXISTS `divisi` (
   `kode_divisi` varchar(10) NOT NULL,
   `nama_divisi` varchar(20) NOT NULL,
   PRIMARY KEY (`id_divisi`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `divisi`
 --
 
 INSERT INTO `divisi` (`id_divisi`, `kode_divisi`, `nama_divisi`) VALUES
-(1, 'SLS', 'Sales');
+(1, 'SLS', 'Sales'),
+(2, 'ADM', 'Administrasi'),
+(3, 'LGS', 'Logistik'),
+(4, 'APT', 'Apoteker');
 
 -- --------------------------------------------------------
 
@@ -83,8 +86,10 @@ CREATE TABLE IF NOT EXISTS `hasil_akhir` (
 --
 
 INSERT INTO `hasil_akhir` (`nip`, `nama_pegawai`, `nilai_s`, `hasil`) VALUES
-(1245, 'Poppy', 3.3378, 0.506606),
-(14788, 'Rudi', 3.25075, 0.493394);
+(1245, 'Poppy', 2.86519, 0.228006),
+(11110, 'Udin', 3.02282, 0.252111),
+(14788, 'Rudi', 3.23683, 0.26996),
+(18961, 'Nissa', 2.86519, 0.238964);
 
 -- --------------------------------------------------------
 
@@ -160,8 +165,10 @@ CREATE TABLE IF NOT EXISTS `penilaian` (
 --
 
 INSERT INTO `penilaian` (`nip`, `nama_pegawai`, `nama_divisi`, `kriteria1`, `kriteria2`, `kriteria3`, `kriteria4`, `kriteria5`, `kriteria6`) VALUES
-(1245, 'Poppy', 'Sales', 5, 3, 3, 5, 4, 4),
-(14788, 'Rudi', 'Sales', 4, 3, 5, 3, 4, 4);
+(1245, 'Poppy', 'Sales', 2, 3, 4, 5, 4, 4),
+(11110, 'Udin', 'Sales', 2, 4, 5, 4, 4, 5),
+(14788, 'Rudi', 'Sales', 4, 3, 5, 3, 4, 4),
+(18961, 'Nissa', 'Sales', 2, 3, 4, 5, 4, 4);
 
 -- --------------------------------------------------------
 
@@ -186,11 +193,11 @@ CREATE TABLE IF NOT EXISTS `user` (
   `id_user` int(10) NOT NULL AUTO_INCREMENT,
   `nama` varchar(50) NOT NULL,
   `username` varchar(20) NOT NULL,
-  `bagian` varchar(12) NOT NULL,
+  `bagian` varchar(20) NOT NULL,
   `password` varchar(50) NOT NULL,
   PRIMARY KEY (`id_user`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=29 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=30 ;
 
 --
 -- Dumping data for table `user`
@@ -198,6 +205,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 
 INSERT INTO `user` (`id_user`, `nama`, `username`, `bagian`, `password`) VALUES
 (1, 'Harry', 'admin', 'admin', '21232f297a57a5a743894a0e4a801fc3'),
+(2, 'Budi', 'budi778', 'pimpinan', '571c985d2615c919c4bd2d1782ffc682'),
 (26, 'Rudi', '14788', 'pegawai', 'c322182e6279fd00cf24101223265689'),
 (28, 'Tom', 'tom', 'admin', '34b7da764b21d298ef307d04d8152dc5');
 

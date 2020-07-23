@@ -6,8 +6,7 @@ $cari=$_GET['cari'];
 		$ket="";
 	}
     $sql = "SELECT * FROM hasil_akhir ".$ket." order by hasil desc";
-	$result = mysql_query($sql);
-	$max = max($data);
+    $result = mysql_query($sql);
 	$modname="hasil";		
 ?>
 
@@ -21,7 +20,7 @@ $cari=$_GET['cari'];
             
             <div class="pageicon"><span class=" iconfa-file"></span></div>
             <div class="pagetitle">
-                <h5>Hasil Akhir</h5>
+                <h5>Hasil Penilaian</h5>
                 <h1>Pegawai Terbaik</h1>
             </div>
         </div><!--pageheader-->
@@ -42,7 +41,7 @@ $cari=$_GET['cari'];
 	     			<th width="50">Nilai S</th>
 	     			<th width="50">Hasil</th>
 	     			<th width="50">Persentase Hasil</th>
-	     			<th width="50">Keterangan</th>
+                     <th width="50">Action</th>
 		        </tr>
     		</thead>
     		<tbody>
@@ -58,16 +57,10 @@ $cari=$_GET['cari'];
  	 			<td><?php echo $data['nilai_s'] ?></td>
  	 			<td><?php echo $data['hasil'] ?></td>
  	 			<td><?php echo $data['hasil']*100 ?> %</td>
-				  <td> 
-					<?php
-					if ($data['hasil'] = $max)
-					{ ?>
-						<a class="iconsweets-cup"></a>
-					<?php } else {
-						echo " ";
-					} ?>
-				  </td>
+                <td><div align="center"><a href="index.php?mod=<?php echo $modname; ?>_edit&id=<?php echo $data['kode_kriteria'] ?>"><span title="Edit" class="iconfa-ok-sign" style="font-size:20px"></span></a></div></td>
 				</tr>
+                
+
                         <?php
 		   					$i++;
 	        			}

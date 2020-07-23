@@ -24,25 +24,25 @@
                         
                         <?php
 						if($_SESSION['bagian']=='admin'){ 
-							metroicon('Dashboard','index.php?mod=home','iconfa-laptop','OliveDrab');
-							metroicon('Data Pegawai','index.php?mod=pegawai','iconfa-user','DeepPink');
+                            metroicon('Dashboard','index.php?mod=home','iconfa-laptop','OliveDrab');
+							metroicon('User','index.php?mod=user','iconfa-user','DeepPink');
+							metroicon('Data Pegawai','index.php?mod=pegawai','iconfa-group','DeepPink');
 							metroicon('Data Kriteria','index.php?mod=kriteria','iconfa-list','DeepPink');
 							metroicon('Penilaian','index.php?mod=penilaian','iconfa-file','DeepPink');
 							metroicon('Hasil Akhir','index.php?mod=hasil','iconfa-folder-close','DeepPink');
-							metroicon('User','index.php?mod=penjualan','iconfa-user','DeepPink');
 							metroicon('Log Out','logout.php','iconfa-off','Black'); 
 						}
 						if($_SESSION['bagian']=='pegawai'){ 
 							metroicon('Dashboard','index.php?mod=home','iconfa-laptop','OliveDrab'); 
 							metroicon('Data Diri','index.php?mod=pegawai2','iconfa-user','DeepPink');
 							metroicon('Penilaian','index.php?mod=penilaian2','iconfa-file','DeepPink');
-							
 							metroicon('Log Out','logout.php','iconfa-off','Black'); 
 						}
 												
-						if($_SESSION['bagian']=='pemilik'){ 
-							metroicon('Dashboard','index.php?mod=home','iconfa-laptop','OliveDrab'); 
-							metroicon('Hasil Penilaian','index.php?mod=hasil','iconfa-folder-close','DeepPink');
+						if($_SESSION['bagian']=='pimpinan'){ 
+                            metroicon('Dashboard','index.php?mod=home','iconfa-laptop','OliveDrab'); 
+                            metroicon('Data Kriteria','index.php?mod=kriteria_pimpinan','iconfa-list','OliveDrab'); 
+							metroicon('Hasil','index.php?mod=hasil_pimpinan','iconfa-folder-close','DeepPink');
 							metroicon('Log Out','logout.php','iconfa-off','Black'); 
 						}
 							

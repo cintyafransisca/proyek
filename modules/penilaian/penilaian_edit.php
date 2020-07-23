@@ -77,7 +77,7 @@ $row = mysql_fetch_array ( mysql_query("SELECT * FROM penilaian WHERE nip='$id' 
 							<option value="5">5 - Sangat tinggi</option>
 						  </span></select></P>
 						  
-					<P><label> Sikap</label>				
+					<P><label> Produktivitas</label>				
 					<span class="field"><select name="kriteria3">
 							<option value="<?php echo"$row[kriteria3]"?>"><?php echo"$row[kriteria3]"?></option>
 							<option value="1">1 -Sangat rendah</option>
@@ -107,7 +107,7 @@ $row = mysql_fetch_array ( mysql_query("SELECT * FROM penilaian WHERE nip='$id' 
 							<option value="5">5 - Sangat tinggi</option>
 						  </span></select></P>
 											  
-					<P><label> Produktivitas</label>				
+					<P><label> Sikap</label>				
 					<span class="field"><select name="kriteria6">
 							<option value="<?php echo"$row[kriteria6]"?>"><?php echo"$row[kriteria6]"?></option>
 							<option value="1">1 -Sangat rendah</option>
