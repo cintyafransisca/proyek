@@ -8,9 +8,6 @@ $result_join = mysql_query($sql_join);
 style="margin:0 auto; width:100%;">
 <div style="margin-left:20px; margin-right:20px;">
 
-	<div id="watermark">
-		<img src="../img/logo2baru.png" width="100%">
-		</div>
 
 <table width="100%" cellpadding="0" cellspacing="0">
 	<tr>
