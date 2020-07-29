@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 19, 2020 at 04:30 PM
+-- Generation Time: Jul 28, 2020 at 04:34 PM
 -- Server version: 5.6.16
 -- PHP Version: 5.5.11
 
@@ -75,7 +75,6 @@ INSERT INTO `divisi` (`id_divisi`, `kode_divisi`, `nama_divisi`) VALUES
 
 CREATE TABLE IF NOT EXISTS `hasil_akhir` (
   `nip` int(11) NOT NULL,
-  `nama_pegawai` varchar(50) NOT NULL,
   `nilai_s` float NOT NULL,
   `hasil` float NOT NULL,
   PRIMARY KEY (`nip`)
@@ -85,11 +84,11 @@ CREATE TABLE IF NOT EXISTS `hasil_akhir` (
 -- Dumping data for table `hasil_akhir`
 --
 
-INSERT INTO `hasil_akhir` (`nip`, `nama_pegawai`, `nilai_s`, `hasil`) VALUES
-(1245, 'Poppy', 2.86519, 0.228006),
-(11110, 'Udin', 3.02282, 0.252111),
-(14788, 'Rudi', 3.23683, 0.26996),
-(18961, 'Nissa', 2.86519, 0.238964);
+INSERT INTO `hasil_akhir` (`nip`, `nilai_s`, `hasil`) VALUES
+(1245, 3.14856, 0.248354),
+(11110, 3.03029, 0.245942),
+(14788, 3.25075, 0.263835),
+(18961, 2.89157, 0.234683);
 
 -- --------------------------------------------------------
 
@@ -111,12 +110,12 @@ CREATE TABLE IF NOT EXISTS `kriteria` (
 --
 
 INSERT INTO `kriteria` (`id_kriteria`, `kode_kriteria`, `nama_kriteria`, `bobot`, `normalisasi`) VALUES
-(1, 'KDS', 'Kedisiplinan', 5, '0.20'),
-(2, 'KST', 'Kerjasama tim', 4, '0.16'),
-(3, 'PRD', 'Produktivitas', 5, '0.20'),
-(4, 'PRS', 'Presensi', 3, '0.12'),
-(5, 'SKL', 'Skill', 4, '0.16'),
-(6, 'SKP', 'Sikap', 4, '0.16');
+(1, 'KDS', 'Kedisiplinan', 5, '0.21'),
+(2, 'KST', 'Kerjasama tim', 4, '0.17'),
+(3, 'PRD', 'Produktivitas', 4, '0.17'),
+(4, 'PRS', 'Presensi', 3, '0.13'),
+(5, 'SKL', 'Skill', 4, '0.17'),
+(6, 'SKP', 'Sikap', 4, '0.17');
 
 -- --------------------------------------------------------
 
@@ -136,7 +135,7 @@ CREATE TABLE IF NOT EXISTS `pegawai` (
 --
 
 INSERT INTO `pegawai` (`nip`, `nama_pegawai`, `nama_divisi`) VALUES
-(1245, 'Poppy', 'Sales'),
+(1245, 'Poppy', 'Apoteker'),
 (11110, 'Udin', 'Sales'),
 (14788, 'Rudi', 'Sales'),
 (18961, 'Nissa', 'Sales');
@@ -149,8 +148,6 @@ INSERT INTO `pegawai` (`nip`, `nama_pegawai`, `nama_divisi`) VALUES
 
 CREATE TABLE IF NOT EXISTS `penilaian` (
   `nip` int(11) NOT NULL,
-  `nama_pegawai` varchar(50) NOT NULL,
-  `nama_divisi` varchar(20) NOT NULL,
   `kriteria1` int(11) NOT NULL,
   `kriteria2` int(11) NOT NULL,
   `kriteria3` int(11) NOT NULL,
@@ -164,11 +161,11 @@ CREATE TABLE IF NOT EXISTS `penilaian` (
 -- Dumping data for table `penilaian`
 --
 
-INSERT INTO `penilaian` (`nip`, `nama_pegawai`, `nama_divisi`, `kriteria1`, `kriteria2`, `kriteria3`, `kriteria4`, `kriteria5`, `kriteria6`) VALUES
-(1245, 'Poppy', 'Sales', 2, 3, 4, 5, 4, 4),
-(11110, 'Udin', 'Sales', 2, 4, 5, 4, 4, 5),
-(14788, 'Rudi', 'Sales', 4, 3, 5, 3, 4, 4),
-(18961, 'Nissa', 'Sales', 2, 3, 4, 5, 4, 4);
+INSERT INTO `penilaian` (`nip`, `kriteria1`, `kriteria2`, `kriteria3`, `kriteria4`, `kriteria5`, `kriteria6`) VALUES
+(1245, 3, 3, 4, 5, 4, 4),
+(11110, 2, 4, 5, 4, 4, 5),
+(14788, 4, 3, 5, 3, 4, 4),
+(18961, 2, 3, 4, 5, 4, 4);
 
 -- --------------------------------------------------------
 
@@ -197,7 +194,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `password` varchar(50) NOT NULL,
   PRIMARY KEY (`id_user`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=30 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=29 ;
 
 --
 -- Dumping data for table `user`

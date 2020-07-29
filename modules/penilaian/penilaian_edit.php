@@ -4,8 +4,8 @@ $id = (string) $_GET['id'];
 if (isset($_POST['submitted'])) { 
 foreach($_POST AS $key => $value) { $_POST[$key] = mysql_real_escape_string($value); } 
 $nip=$_POST['nip'];
-$nama_pegawai=$_POST['nama_pegawai'];
-$nama_divisi=$_POST['nama_divisi'];
+$nama_pegawai=$_GET['nama_pegawai'];
+$nama_divisi=$_GET['nama_divisi'];
 $kriteria1=$_POST['kriteria1'];
 $kriteria2=$_POST['kriteria2'];
 $kriteria3=$_POST['kriteria3'];
@@ -14,12 +14,13 @@ $kriteria5=$_POST['kriteria5'];
 $kriteria6=$_POST['kriteria6'];
 		
 
-$sql = "UPDATE penilaian set nip='{$_POST['nip']}', nama_pegawai='{$_POST['nama_pegawai']}', nama_divisi='{$_POST['nama_divisi']}', kriteria1='{$_POST['kriteria1']}', kriteria2='{$_POST['kriteria2']}', kriteria3='{$_POST['kriteria3']}', kriteria4='{$_POST['kriteria4']}', kriteria5='{$_POST['kriteria5']}', kriteria6='{$_POST['kriteria6']}' WHERE nip='$id'";
+$sql = "UPDATE penilaian set nip='{$_POST['nip']}', kriteria1='{$_POST['kriteria1']}', kriteria2='{$_POST['kriteria2']}', kriteria3='{$_POST['kriteria3']}', kriteria4='{$_POST['kriteria4']}', kriteria5='{$_POST['kriteria5']}', kriteria6='{$_POST['kriteria6']}' WHERE nip='$id'";
 mysql_query($sql) or die(mysql_error()); 
 pesan_sukses("Data berhasil disimpan"); 
 echo '<meta http-equiv="refresh" content="0;url=index.php?mod=penilaian">'; 
 }
 $row = mysql_fetch_array ( mysql_query("SELECT * FROM penilaian WHERE nip='$id' ")); 
+$row2 = mysql_fetch_array ( mysql_query("SELECT * FROM  pegawai pg, penilaian pn WHERE pn.nip=pg.nip")); 
 ?>
 <div class="rightpanel">
 <ul class="breadcrumbs">
@@ -52,10 +53,10 @@ $row = mysql_fetch_array ( mysql_query("SELECT * FROM penilaian WHERE nip='$id' 
                      <span class="field"><input type="text" required="required" name="nip" id="nip" readonly="readonly" value="<?php echo $row['nip']; ?>" /></span></p>
                      
 					<p><label>Nama Pegawai</label>
-                    <span class="field"><input type="text" required="required" name="nama_pegawai" id="nama_pegawai" readonly="readonly" value="<?php echo $row['nama_pegawai']; ?>" /></span></p>	
+                    <span class="field"><input type="text" required="required" name="nama_pegawai" id="nama_pegawai" readonly="readonly" value="<?php echo $row2['nama_pegawai']; ?>" /></span></p>	
                     
                     <p><label>Divisi</label>
-                    <span class="field"><input type="text"  required="required" name="nama_divisi" id="nama_divisi" readonly="readonly" value="<?php echo $row['nama_divisi']; ?>" /></span></p>
+                    <span class="field"><input type="text"  required="required" name="nama_divisi" id="nama_divisi" readonly="readonly" value="<?php echo $row2['nama_divisi']; ?>" /></span></p>
                     
                     <P><label> Kedisiplinan</label>				
 					<span class="field"><select name="kriteria1">

@@ -13,8 +13,8 @@ foreach($_POST AS $key => $value) { $_POST[$key] = mysql_real_escape_string($val
 				$kriteria6=$_POST['kriteria6'];
 				
 				
-$sql = "INSERT INTO penilaian (nip, nama_pegawai, nama_divisi, kriteria1, kriteria2, kriteria3, kriteria4, kriteria5, kriteria6) VALUES (
-'{$_POST['nip']}','{$_POST['nama_pegawai']}','{$_POST['nama_divisi']}','$kriteria1','$kriteria2', '$kriteria3', '$kriteria4', '$kriteria5', '$kriteria6')"; 
+$sql = "INSERT INTO penilaian (nip, kriteria1, kriteria2, kriteria3, kriteria4, kriteria5, kriteria6) VALUES (
+'{$_POST['nip']}','$kriteria1','$kriteria2', '$kriteria3', '$kriteria4', '$kriteria5', '$kriteria6')"; 
 
 mysql_query($sql) or die(mysql_error()); 
 pesan_sukses("Data berhasil disimpan"); 

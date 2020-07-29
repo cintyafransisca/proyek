@@ -25,7 +25,11 @@ $cari=$_GET['cari'];
         </div><!--pageheader-->
 <div class="maincontent">
             <div class="maincontentinner">
-            
+                <ul class="list-nostyle list-inline">
+                	<li><a href="index.php?mod=kriteria_new" class="btn btn-primary">
+                    <i class="iconfa-plus"></i>&nbsp;Tambah Data Kriteria</a></li>
+                    
+                </ul>
                 
                 </ul>
                 

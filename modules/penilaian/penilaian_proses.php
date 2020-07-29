@@ -28,7 +28,6 @@ $result_penilaian = mysql_query($sql_penilaian);
 $i=1;
 while($data_penilaian = mysql_fetch_array($result_penilaian)){
     $nip = $data_penilaian['nip'];
-    $nama_pegawai = $data_penilaian['nama_pegawai'];
     $sql1 = mysql_query("SELECT * FROM penilaian where nip=$nip");
     $result1 = mysql_fetch_array($sql1);
 
@@ -51,8 +50,8 @@ while($data_penilaian = mysql_fetch_array($result_penilaian)){
     {
         $sql = "UPDATE hasil_akhir SET nilai_s = $s_penilaian, hasil = $hasil_akhir WHERE nip=$nip";   
     } else {
-    $sql = "INSERT INTO hasil_akhir (nip, nama_pegawai, nilai_s, hasil) VALUES (
-        '$nip','$nama_pegawai','$s_penilaian','$hasil_akhir')";
+    $sql = "INSERT INTO hasil_akhir (nip, nilai_s, hasil) VALUES (
+        '$nip','$s_penilaian','$hasil_akhir')";
         }
     $result = mysql_query($sql);
     ?>

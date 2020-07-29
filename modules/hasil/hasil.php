@@ -5,9 +5,12 @@ $cari=$_GET['cari'];
 	} else {
 		$ket="";
 	}
-    $sql = "SELECT * FROM hasil_akhir ".$ket." order by hasil desc";
+    
+	$sql_join = "SELECT * FROM  pegawai pg, hasil_akhir ha WHERE ha.nip=pg.nip group by pg.nama_pegawai order by hasil desc";
+	$result_join = mysql_query($sql_join);
+	$sql = "SELECT max(hasil) as max FROM  hasil_akhir";
 	$result = mysql_query($sql);
-	$max = max($data);
+	$data = mysql_fetch_array($result);
 	$modname="hasil";		
 ?>
 
@@ -27,7 +30,11 @@ $cari=$_GET['cari'];
         </div><!--pageheader-->
 <div class="maincontent">
             <div class="maincontentinner">
-                
+			<ul class="list-nostyle list-inline">
+                	<li><a href="index.php?mod=<?php echo $modname; ?>_print" target="_blank" class="btn btn-primary">
+                    <i class="iconfa-print"></i>&nbsp;Print Hasil</a></li>
+                    
+                </ul>
                 </ul>
 					
                 
@@ -49,24 +56,20 @@ $cari=$_GET['cari'];
 	
 	<?php
 	    $i=1;
-	    while($data = mysql_fetch_array($result)){
+	    while($data_join = mysql_fetch_array($result_join)){
 	?>    
         		<tr>
  	 			<td><?php echo $i; ?></td>
- 	 			<td><?php echo $data['nip'] ?></td>
- 	 			<td><?php echo $data['nama_pegawai'] ?></td>
- 	 			<td><?php echo $data['nilai_s'] ?></td>
- 	 			<td><?php echo $data['hasil'] ?></td>
- 	 			<td><?php echo $data['hasil']*100 ?> %</td>
-				  <td> 
-					<?php
-					if ($data['hasil'] = $max)
-					{ ?>
-						<a class="iconsweets-cup"></a>
-					<?php } else {
-						echo " ";
-					} ?>
-				  </td>
+ 	 			<td><?php echo $data_join['nip'] ?></td>
+ 	 			<td><?php echo $data_join['nama_pegawai'] ?></td>
+ 	 			<td><?php echo $data_join['nilai_s'] ?></td>
+ 	 			<td><?php echo $data_join['hasil'] ?></td>
+ 	 			<td><?php echo $data_join['hasil']*100 ?> %</td>
+				<td>
+				<?php
+				if $data_join['hasil']=$max
+				?>
+				</td>
 				</tr>
                         <?php
 		   					$i++;
